@@ -3,7 +3,7 @@ My dynamic MOTD Bash scripts
 
 Inspird by (https://github.com/RIKRUS/MOTD)
 
-Dependencies vary by script, but include: figlet, curl, lm-sensors (sensors command), vmstat, transmission-remote, fail2ban-server. See the individual scripts for more info.
+Dependencies vary by script, but include: `figlet`, `curl`, `lm-sensors` (`sensors` command), `vmstat`, `transmission-remote`, and `fail2ban-server`. See the individual scripts for more info.
 
 ## Installation:
 	git clone https://github.com/andyforceno/motd-scripts.git
