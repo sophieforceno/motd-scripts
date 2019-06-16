@@ -14,6 +14,19 @@ Dependencies vary by script, but include: figlet, curl, lm-sensors (sensors comm
 	motd() { for f in /path/to/motd-scripts/*.sh; do bash $f -H; done; }
 	motd
 
+## Configuration options:
+$HOME/.config/motd.conf accepts the following options:
+```SERVICES - array of process names
+MOUNTPOINTS - Array of disk mounpoints
+DOMAINS - Array of domain names
+maxCpuTemp - Maximum CPU temp (used to change color based on temps)
+maxGpuTemp - Maximum GPU temp
+transmissionAddr - IP address of transmission torrent server
+transmissionPort - Port number of transmission torrent server
+transmissionDir - Subdirectory location of transmission torrent server, e.g. 192.168.1.2/subdirectory
+f2blog - Fail to ban log path 
+```
+
 ### Screenshot:
 Sensitive information has been redacted 
 ![alt text][logo]
