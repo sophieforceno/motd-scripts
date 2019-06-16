@@ -15,7 +15,7 @@ Dependencies vary by script, but include: `figlet`, `curl`, `lm-sensors` (`senso
 	motd
 
 ## Configuration options:
-$HOME/.config/motd.conf accepts the following options:
+`$HOME/.config/motd.conf` accepts the following options:
 ```SERVICES - array of process names
 MOUNTPOINTS - Array of disk mounpoints
 DOMAINS - Array of domain names
