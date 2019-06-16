@@ -28,7 +28,7 @@ f2blog - Fail2ban-server log path
 ```
 
 ### Screenshot:
-Sensitive information has been redacted 
+Note: Some sensitive information has been redacted 
 ![alt text][logo]
 
 [logo]: https://github.com/andyforceno/motd-scripts/blob/master/Screenshot.png "MOTD Scripts"
