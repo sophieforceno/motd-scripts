@@ -7,13 +7,13 @@ Dependencies vary by script, but include: figlet, curl, lm-sensors (sensors comm
 See the individual scripts for more info.
 
 ## Installation:
-	`git clone https://github.com/andyforceno/motd-scripts.git`
-	`cd motd-scripts && cp motd.conf $HOME/.config/`
+	git clone https://github.com/andyforceno/motd-scripts.git
+	cd motd-scripts && cp motd.conf $HOME/.config/
 	Don't forget to edit motd.conf!
 	My personal preference is to run the scripts under my user only, so I modify .bash_profile to include:
 
-	`motd() { for f in /path/to/motd-scripts/*.sh; do bash $f -H; done; }`
-	`motd`
+	motd() { for f in /path/to/motd-scripts/*.sh; do bash $f -H; done; }
+	motd
 
 ### Screenshot:
 Sensitive information has been redacted 
