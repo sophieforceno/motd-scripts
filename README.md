@@ -24,7 +24,7 @@ maxGpuTemp - Maximum GPU temp
 transmissionAddr - IP address of transmission torrent server
 transmissionPort - Port number of transmission torrent server
 transmissionDir - Subdirectory location of transmission torrent server, e.g. 192.168.1.2/subdirectory
-f2blog - Fail to ban log path 
+f2blog - Fail2ban-server log path 
 ```
 
 ### Screenshot:
