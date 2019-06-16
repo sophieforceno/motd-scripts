@@ -17,7 +17,9 @@ See the individual scripts for more info.
 
 ### Screenshot:
 Sensitive information has been redacted 
-![alt text](https://raw.githubusercontent.com/andyforceno/motd-scripts/master/motd-scripts.png "MOTD Scripts")
+![alt text][logo]
+
+[logo]: https://github.com/andyforceno/motd-scripts/blob/master/Screenshot.png "MOTD Scripts"
 
 
 ### The UnLicense
