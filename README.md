@@ -1,9 +1,9 @@
 # MOTD-scripts
 My dynamic MOTD Bash scripts
 
-Inspird by (https://github.com/RIKRUS/MOTD)
+Inspired by (https://github.com/RIKRUS/MOTD)
 
-Dependencies vary by script, but include: `figlet`, `curl`, `lm-sensors` (`sensors` command), `vmstat`, `transmission-remote`, and `fail2ban-server`. See the individual scripts for more info.
+Dependencies vary by script, but include: `figlet`, `curl`, `lm-sensors` (`sensors` command), `vmstat`, `transmission-remote`, and `fail2ban-server`. See the individual scripts for more info. Note, some colors display incorrectly in tmux and screen sessions.
 
 ## Installation:
 	git clone https://github.com/andyforceno/motd-scripts.git
@@ -28,7 +28,6 @@ f2blog - Fail2ban-server log path
 ```
 
 ### Screenshot:
-Note: Some sensitive information has been redacted 
 ![alt text][logo]
 
 [logo]: https://github.com/andyforceno/motd-scripts/blob/master/Screenshot.png "MOTD Scripts"
