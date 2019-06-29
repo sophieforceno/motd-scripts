@@ -11,8 +11,8 @@ if [ -n $(which sensors) ]; then
 	gpuTemp=$(sensors | awk 'f { print $2; f=0 } /GPU/{f=1}' | tr -d '+°C')
 	gpuTemp=$(echo ${gpuTemp%.*})
 
-	echo "  Temps:"
 	if [ "${#CORES[@]}" -ne 0 ]; then
+		echo "  Temps:"
 		for ((i=0;i<${#TEMPS[@]};++i)); do
 			color="30;1;46m"
 				
