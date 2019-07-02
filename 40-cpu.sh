@@ -9,6 +9,8 @@ clear="\e[39m\e[0m"
 dim="\e[2m"
 barclear=""
 
+# This awk code was found on StackOverflow, but of course I didn't save it and I can't find it now
+# It's floating out there somewhere
 percentUsed=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print ($2+$4-u1) * 100 / (t-t1) " "; }' <(grep -w "cpu" /proc/stat) <(sleep 0.5;grep -w "cpu" /proc/stat))
 percentUsed=$(echo ${percentUsed%.*})
 

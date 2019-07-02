@@ -16,6 +16,8 @@ load=$(uptime | awk -F : '{ print $5 }')
 #
 R1=`cat /sys/class/net/$iface/statistics/rx_bytes`
 T1=`cat /sys/class/net/$iface/statistics/tx_bytes`
+# In my informal testing, I found 0.5 as accurate as 1.0 
+# when comparing both to htop's output, but ymmv
 sleep 0.5
 R2=`cat /sys/class/net/$iface/statistics/rx_bytes`
 T2=`cat /sys/class/net/$iface/statistics/tx_bytes`
