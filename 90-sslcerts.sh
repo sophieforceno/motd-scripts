@@ -22,11 +22,11 @@ check_cache() {
 
 		for date in "${CACHED_DATE[@]}"; do
 			dateDiff=$((dateNow-date))
-			# Refresh cache if it's been longer than 1 week
+			# Refresh cache daily
 			# TODO: Add condition such that if $CACHED_EXPIRY[$i] - $dateNow -le 0
 			# 		then the certs are expired, so re-cache
 			# 		Diff between dateNow and expiry is positive until expiry, then it goes to less than 0
-			if [[ "$dateDiff" -gt 604800 ]]; then
+			if [[ "$dateDiff" -gt 86400 ]]; then
 				cached=0
 				# Re-cache expiry dates
 				# echo "Has it been one week already? Re-caching..."
