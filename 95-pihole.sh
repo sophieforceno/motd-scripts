@@ -9,14 +9,14 @@ if [[ $(which pihole) ]]; then
 	adsBlocked=$(pihole -c -j | awk -F : '/blocked_/ { print $4 }' | cut -d , -f1)
 	adsPercent=$(pihole -c -j | awk -F : '/percentage_/ { print $5 }' | tr -d '}')
 
-	echo -e " Pihole statistics:"
+	echo -e "  Pihole statistics:"
 	domainsBlocked="\e[0;37m$domainsBlocked\e[0m"
-	echo -e "  Domains blocked: $domainsBlocked"
+	echo -e "   Domains blocked: $domainsBlocked"
 	dnsQueries="\e[0;37m$dnsQueries\e[0m"
-	echo -e "  DNS Queries: $dnsQueries"
+	echo -e "   DNS Queries: $dnsQueries"
 	adsBlocked="\e[0;37m$adsBlocked\e[0m"
-	echo -e "  Ads blocked: $adsBlocked"
+	echo -e "   Ads blocked: $adsBlocked"
 	adsPercent="\e[0;37m$adsPercent\e[0m"
-	echo -e "  Percent Ads: $adsPercent"
+	echo -e "   Percent Ads: $adsPercent"
 	echo
 fi
