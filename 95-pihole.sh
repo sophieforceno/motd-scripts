@@ -4,9 +4,6 @@
 #
 
 if [[ $(which pihole) ]]; then
-	source $HOME/.config/motd.conf
-	IFS=$'\n'
-
 	domainsBlocked=$(pihole -c -j | awk -F : '/domains_/ { print $2 }' | cut -d , -f1)
 	dnsQueries=$(pihole -c -j | awk -F : '/dns_/ { print $3 }' | cut -d , -f1)
 	adsBlocked=$(pihole -c -j | awk -F : '/blocked_/ { print $4 }' | cut -d , -f1)
