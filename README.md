@@ -10,7 +10,7 @@ See the individual scripts for more info. A limitation: some colors display inco
 	git clone https://github.com/andyforceno/motd-scripts.git
 	cd motd-scripts && cp motd.conf $HOME/.config/
 	Don't forget to edit motd.conf!
-	My personal preference is to run the scripts under my user only, so I modify .bash_profile to include:
+	My personal preference is to run the scripts under my user only, so I modify .profile to include:
 
 	motd() { for f in /path/to/motd-scripts/*.sh; do bash $f -H; done; }
 	motd
