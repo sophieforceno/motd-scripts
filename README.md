@@ -18,7 +18,7 @@ See the individual scripts for more info. A limitation: some colors display inco
 ## Configuration options:
 `$HOME/.config/motd.conf` accepts the following options:
 ```SERVICES - array of process names
-MOUNTPOINTS - Array of disk mounpoints
+MOUNTPOINTS - Array of disk mountpoints
 DOMAINS - Array of domain names
 maxCpuTemp - Maximum CPU temp (used to change color based on temps)
 maxGpuTemp - Maximum GPU temp
