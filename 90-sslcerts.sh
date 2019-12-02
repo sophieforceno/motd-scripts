@@ -1,4 +1,4 @@
-	#! /bin/bash
+#! /bin/bash
 
 # List SSL certificate expiration for MOTD
 # 
@@ -23,13 +23,9 @@ check_cache() {
 		for date in "${CACHED_DATE[@]}"; do
 			dateDiff=$((dateNow-date))
 			# Refresh cache daily
-			# TODO: Add condition such that if $CACHED_EXPIRY[$i] - $dateNow -le 0
-			# 		then the certs are expired, so re-cache
-			# 		Diff between dateNow and expiry is positive until expiry, then it goes to less than 0
 			if [[ "$dateDiff" -gt 86400 ]]; then
 				cached=0
 				# Re-cache expiry dates
-				# echo "Has it been one week already? Re-caching..."
 				get_dates
 			fi
 		done
@@ -40,8 +36,9 @@ get_dates() {
 	rm /tmp/.motdcache
 	touch /tmp/.motdcache
 	for d in ${DOMAINS[@]}; do
-		# From: https://bytefreaks.net/gnulinux/bash/use-awk-to-print-the-last-n-columns-of-a-file-or-a-pipe
-		expiry=$(curl --insecure -v https://$d 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }' | awk '/expire/ {i = 3; for (--i; i >= 0; i--){ printf "%s ",$(NF-i)} print ""}')
+		expiry=$(curl --insecure -v https://$d 2>&1 | grep "expire date" | cut -d ' ' -f5-)
+		# Deprecated, will be removed at a later date
+		#expiry=$(curl --insecure -v https://$d 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }' | awk '/expire/ {i = 3; for (--i; i >= 0; i--){ printf "%s ",$(NF-i)} print ""}')
 		expirySecs=$(date -d "$expiry" "+%s")
 		dateNow=$(date +%s)
 		dateDiff=$((expirySecs-dateNow))
@@ -52,7 +49,7 @@ get_dates() {
 
 ## Main
 # || "${#CACHED_DOMAINS[@]}" -ne 0
-if [[ "${#DOMAINS[@]}" -ne 0 ]]; then
+if [[ "${#DOMAINS[@]}" -gt 0 ]]; then
 	echo "  Domains:"
 	check_cache
 	# If we came directly from check_cache(), we have a different array
@@ -63,8 +60,6 @@ if [[ "${#DOMAINS[@]}" -ne 0 ]]; then
 			else
 				dot="\e[38;5;36m●\e[0m"
 			fi
-			# Pretty sure I dont need this. Flotsam. 
-			#expiry="\e[0;37m$expiry\e[0m"
 			expiryString="${CACHED_EXPIRY[$index]}"
 			echo -e "  $dot ${CACHED_DOMAINS[$index]}: \e[0;37m$(date -d @$expiryString)\e[0m"
 		done
