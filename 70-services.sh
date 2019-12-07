@@ -5,13 +5,17 @@
 
 source $HOME/.config/motd.conf
 
+# TODO: Add a new loop to format into columns when > 5 services
+
+
 if [ "${#SERVICES[@]}" -ne 0 ]; then
 	echo "  Services:"
 
 	for p in ${SERVICES[@]}; do
 		proc=$(echo "$p" | sed 's/^./[&]/')
-		status=$(ps ax | grep -wo "$proc" | uniq)
+		status=$(ps ax | grep -iwo "$proc" | uniq)
 
+# Change dot color to indicate service status up/down
 		if [[ -n $status ]]; then
 			dot="\e[38;5;36m●\e[0m"
 		else
