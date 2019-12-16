@@ -6,7 +6,8 @@
 source $HOME/.config/motd.conf
 
 uptime=$(uptime -p)
-ip=$(curl -s ifconfig.co)
+ip=$(curl -s "https://api.ipify.org?format=text")
+
 users=( $(who | awk '{ print $1 }' | uniq) )
 process=$(ps ax | wc -l)
 load=$(uptime | awk -F : '{ print $5 }')
