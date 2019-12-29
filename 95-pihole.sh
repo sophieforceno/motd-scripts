@@ -3,7 +3,7 @@
 # Display Pihole stats on MOTD
 #
 
-if [[ $(which pihole) ]]; then
+if [[ $(which pihole 2> /dev/null) ]]; then
 	domainsBlocked=$(pihole -c -j | awk -F : '/domains_/ { print $2 }' | cut -d , -f1)
 	dnsQueries=$(pihole -c -j | awk -F : '/dns_/ { print $3 }' | cut -d , -f1)
 	adsBlocked=$(pihole -c -j | awk -F : '/blocked_/ { print $4 }' | cut -d , -f1)
