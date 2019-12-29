@@ -3,7 +3,7 @@
 # Count IPs banned by fail2ban for MOTD
 #
 
-if [[ $(which fail2ban-server) ]]; then
+if [[ $(which fail2ban-server 2> /dev/null) ]]; then
 
 	source $HOME/.config/motd.conf
 
