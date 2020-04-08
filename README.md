@@ -7,7 +7,7 @@ Dependencies vary by script, but include: `figlet`, `curl`, `lm-sensors` (`senso
 See the individual scripts for more info. A limitation: some colors display incorrectly in tmux and screen sessions.
 
 ## Installation:
-	git clone https://github.com/andyforceno/motd-scripts.git
+	git clone https://github.com/SyntrophicConsortium/motd-scripts.git
 	cd motd-scripts && cp motd.conf $HOME/.config/
 	Don't forget to edit motd.conf!
 	My personal preference is to run the scripts under my user only, so I modify .profile to include:
@@ -31,7 +31,7 @@ f2blog - Fail2ban-server log path
 ### Screenshot:
 ![alt text][logo]
 
-[logo]: https://github.com/andyforceno/motd-scripts/blob/master/Screenshot.png "MOTD Scripts"
+[logo]: https://github.com/SyntrophicConsortium/motd-scripts/blob/master/Screenshot.png "MOTD Scripts"
 
 
 ### The UnLicense
