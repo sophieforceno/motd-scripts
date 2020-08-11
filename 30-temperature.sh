@@ -18,7 +18,7 @@ if [ -n $(which sensors) ]; then
 	
 	# Check that $miscTemp is a number
 	# Otherwise rounding will produce invalid arithmetic operation on devices without "thermal"
-	if [[ "$miscTemp" =~ ^[0-9]+$ ]]; then
+	if [[ "$miscTemp" =~ ^[0-9]+([.][0-9]+)?$ ]]; then
 			miscTemp=$(echo ${miscTemp%.*})
 		else
 			miscTemp=""
