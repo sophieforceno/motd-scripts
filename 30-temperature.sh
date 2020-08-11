@@ -13,7 +13,8 @@ if [ -n $(which sensors) ]; then
 	TEMPS=( $(sensors | awk '{ if ($1=="SoC" || $1=="Core") print $3 }' | tr -d '+°C' | cut -d '.' -f1) )
 	gpuTemp=$(sensors | awk 'f { print $2; f=0 } /GPU/{f=1}' | tr -d '+°C')
 	gpuTemp=$(echo ${gpuTemp%.*})
-	miscTemp=$(sensors | grep -E '_thermal|temp1|temp2' | awk '{ print $2 }' | tr -d '+°C' | head -1)
+	# This is for SBCs such as Raspberry Pi. Tested on Raspberry Pi 4 and Libre AML-S805X-AC (La Frite) 
+	miscTemp=$(sensors | grep -E '_thermal|temp1|temp2' | awk '{ print $2 }' | tr -d '+°C\n' | head -2)
 	miscTemp=$(echo ${miscTemp%.*})
 
 	if [ "${#CORES[@]}" -ne 0 ]; then
