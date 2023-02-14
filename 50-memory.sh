@@ -15,12 +15,14 @@ barclear=""
 usedBarWidth=$((($percentUsed*$barWidth)/100))
 barContent=""
 color="36m"
- # Color when $percentUsage is 0-49
+ # Color when $percentUsage is 0-40
 
-if [[ "${percentUsed}" -ge 50 && "${percentUsed}" -lt 90 ]]; then
+if [[ "${percentUsed}" -gt 39 && "${percentUsed}" -le 59 ]]; then
+	color="92m"
+elif [[ "${percentUsed}" -gt 60 && "${percentUsed}" -le 85 ]]; then
 	color="127m"
-elif [[ "${percentUsed}" -ge 90 && "${percentUsed}" -le 100 ]]; then
-	color="1;31m"
+elif [[ "${percentUsed}" -gt 86 && "${percentUsed}" -le 100 ]]; then
+	color="198m"
 fi
 
 for sep in $(seq 1 $usedBarWidth); do
