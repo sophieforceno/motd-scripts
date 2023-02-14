@@ -4,9 +4,6 @@
 # Adapted from: https://github.com/RIKRUS/MOTD
 #
 
-# TODO: Get temps and types from /sys/class/thermal/thermal_zone0/temp
-#		and /sys/class/thermal/thermal_zone0/type
-
 if [ -n $(which sensors) ]; then
 	source $HOME/.config/motd.conf
 	CORES=( $(sensors | awk '{ if ($1=="SoC" || $1=="Core") print $2 }' | tr -d ':')  )
@@ -15,14 +12,13 @@ if [ -n $(which sensors) ]; then
 	gpuTemp=$(echo ${gpuTemp%.*})
 	# This is for SBCs such as Raspberry Pi. Tested on Raspberry Pi 4 and Libre AML-S805X-AC (La Frite) 
 	miscTemp=$(sensors | grep -E '_thermal|temp1|temp2' | awk '{ print $2 }' | tr -d '+°C\n' | head -2)
-	
-	# Check that $miscTemp is a number
-	# Otherwise rounding will produce invalid arithmetic operation on devices without "thermal"
+
+	# Otherwise rounding will produce invalid arithmetic operation on devices without "thermal"	
 	if [[ "$miscTemp" =~ ^[0-9]+([.][0-9]+)?$ ]]; then
-			miscTemp=$(echo ${miscTemp%.*})
-		else
-			miscTemp=""
-		fi
+		miscTemp=$(echo ${miscTemp%.*})
+	else
+		miscTemp=""
+	fi
 
 	if [ "${#CORES[@]}" -ne 0 ]; then
 		echo "  Temps:"
