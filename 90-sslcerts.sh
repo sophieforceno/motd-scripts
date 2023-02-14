@@ -22,7 +22,7 @@ check_cache() {
 
 		for date in "${CACHED_DATE[@]}"; do
 			dateDiff=$((dateNow-date))
-			# Refresh cache daily
+			# Refresh cache every 72 hours
 			if [[ "$dateDiff" -gt 259200 ]]; then
 				cached=0
 				# Re-cache expiry dates
