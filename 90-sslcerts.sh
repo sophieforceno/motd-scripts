@@ -23,7 +23,7 @@ check_cache() {
 		for date in "${CACHED_DATE[@]}"; do
 			dateDiff=$((dateNow-date))
 			# Refresh cache daily
-			if [[ "$dateDiff" -gt 86400 ]]; then
+			if [[ "$dateDiff" -gt 259200 ]]; then
 				cached=0
 				# Re-cache expiry dates
 				get_dates
@@ -35,7 +35,7 @@ check_cache() {
 get_dates() {
 	rm /tmp/.motdcache
 	touch /tmp/.motdcache
-	for d in ${DOMAINS[@]}; do
+	for d in "${DOMAINS[@]}"; do
 		expiry=$(curl --insecure -v https://$d 2>&1 | grep "expire date" | cut -d ' ' -f5-)
 		# Deprecated, will be removed at a later date
 		#expiry=$(curl --insecure -v https://$d 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }' | awk '/expire/ {i = 3; for (--i; i >= 0; i--){ printf "%s ",$(NF-i)} print ""}')
@@ -46,14 +46,12 @@ get_dates() {
 	done
 }
 
-
 ## Main
-# || "${#CACHED_DOMAINS[@]}" -ne 0
 if [[ "${#DOMAINS[@]}" -gt 0 ]]; then
 	echo "  Domains:"
 	check_cache
 	# If we came directly from check_cache(), we have a different array
-	if [[ "cached" -eq 1 ]]; then
+	if [[ "$cached" -eq 1 ]]; then
 		for index in ${!CACHED_DOMAINS[*]}; do
 			if ! test "$dateDiff" -gt 0; then
 				dot="\e[38;5;127m●\e[0m"
