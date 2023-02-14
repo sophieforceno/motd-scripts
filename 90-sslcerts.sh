@@ -37,8 +37,6 @@ get_dates() {
 	touch /tmp/.motdcache
 	for d in "${DOMAINS[@]}"; do
 		expiry=$(curl --insecure -v https://$d 2>&1 | grep "expire date" | cut -d ' ' -f5-)
-		# Deprecated, will be removed at a later date
-		#expiry=$(curl --insecure -v https://$d 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }' | awk '/expire/ {i = 3; for (--i; i >= 0; i--){ printf "%s ",$(NF-i)} print ""}')
 		expirySecs=$(date -d "$expiry" "+%s")
 		dateNow=$(date +%s)
 		dateDiff=$((expirySecs-dateNow))
@@ -54,7 +52,7 @@ if [[ "${#DOMAINS[@]}" -gt 0 ]]; then
 	if [[ "$cached" -eq 1 ]]; then
 		for index in ${!CACHED_DOMAINS[*]}; do
 			if ! test "$dateDiff" -gt 0; then
-				dot="\e[38;5;127m●\e[0m"
+				dot="\e[38;5;198m●\e[0m"
 			else
 				dot="\e[38;5;36m●\e[0m"
 			fi
@@ -65,9 +63,9 @@ if [[ "${#DOMAINS[@]}" -gt 0 ]]; then
 	# Otherwise we came from get_dates()
 	elif [[ "$cached" -eq 0 ]]; then
 		for d in ${DOMAINS[@]}; do
-			# If dateDiff is negative, set dot color to purple
+			# If dateDiff is negative, set dot color to pink
 			if ! test "$dateDiff" -gt 0; then
-				dot="\e[38;5;127m●\e[0m"
+				dot="\e[38;5;198m●\e[0m"
 			else
 				dot="\e[38;5;36m●\e[0m"
 			fi
