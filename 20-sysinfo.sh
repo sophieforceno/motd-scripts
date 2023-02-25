@@ -6,11 +6,12 @@
 source $HOME/.config/motd.conf
 
 uptime=$(uptime -p)
-ip=$(curl -s "https://api.ipify.org?format=text")
-
+#ip=$(curl -s "https://api.ipify.org?format=text")
+# This is 2x faster than the above tested using the bash time command
+ip=$(curl -s "http://api.duckduckgo.com/?q=ip&format=json&pretty=1" | awk -F: '/Answer/ { print $2 }'| awk '{ print $5 }')
 users=( $(who | awk '{ print $1 }' | uniq) )
 process=$(ps ax | wc -l)
-load=$(uptime | awk -F : '{ print $5 }')
+load=$(uptime | awk -F 'average:' '{ print $2 }')
 
 # From: https://gist.githubusercontent.com/joemiller/4069513/raw/dfde5a68e8ab4ac114e89156180bc93debb05993/netspeed.sh
 r1=$(cat /sys/class/net/$iface/statistics/rx_bytes)
