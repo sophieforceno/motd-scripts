@@ -3,10 +3,6 @@
 # List SSL certificate expiration for MOTD
 # 
 
-# Cache file
-# Stores your SSL cert(s) expiration date(s) in epoch time
-cf="/home/$USER/sync/.motdcache"
-
 source $HOME/.config/motd.conf
 
 check_cache() {
