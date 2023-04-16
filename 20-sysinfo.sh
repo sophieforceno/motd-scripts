@@ -1,6 +1,7 @@
 #! /bin/bash
 
-# System information (uptime, load, # processes, # logged in users) for MOTD
+# System information for MOTD
+# Includes uptime, load, External IP, # of processes, network bandwidth, list of logged in users
 #
 
 source $HOME/.config/motd.conf
@@ -15,6 +16,7 @@ users=( $(who | awk '{ print $1 }' | uniq) )
 process=$(ps ax | wc -l)
 load=$(uptime | awk -F 'average:' '{ print $2 }')
 
+# Calculate Rx and Tx
 # From: https://gist.githubusercontent.com/joemiller/4069513/raw/dfde5a68e8ab4ac114e89156180bc93debb05993/netspeed.sh
 r1=$(cat /sys/class/net/$iface/statistics/rx_bytes)
 t1=$(cat /sys/class/net/$iface/statistics/tx_bytes)
