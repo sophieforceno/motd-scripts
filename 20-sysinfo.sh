@@ -6,9 +6,11 @@
 source $HOME/.config/motd.conf
 
 uptime=$(uptime -p)
+apiurl="https://api.duckduckgo.com/?q=ip&format=json&pretty=1"
+# Returns IP address. 
+ip=$(curl -s "https://api.duckduckgo.com/?q=ip&format=json&pretty=1" | awk -F: '/Answer/ { print $2 }'| awk '{ print $5 }' | tr -d '\n')
+# Alternative API endpoint. This is usually slower for me than the one above
 #ip=$(curl -s "https://api.ipify.org?format=text")
-# This is 2x faster than the above tested using the bash time command
-ip=$(curl -s "https://api.duckduckgo.com/?q=ip&format=json&pretty=1" | awk -F: '/Answer/ { print $2 }'| awk '{ print $5 }')
 users=( $(who | awk '{ print $1 }' | uniq) )
 process=$(ps ax | wc -l)
 load=$(uptime | awk -F 'average:' '{ print $2 }')
