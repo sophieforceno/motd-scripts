@@ -15,7 +15,6 @@ barclear=""
 usedBarWidth=$((($percentUsed*$barWidth)/100))
 barContent=""
 color="36m"
- # Color when $percentUsage is 0-40
 
 if [[ "${percentUsed}" -gt 39 && "${percentUsed}" -le 59 ]]; then
 	color="92m"
