@@ -20,13 +20,15 @@ See the individual scripts for more info. A limitation: some colors display inco
 ```SERVICES - array of process names
 MOUNTPOINTS - Array of disk mountpoints
 DOMAINS - Array of domain names
+cf - SSL certificate expiration date cache file
+f2blog - Fail2ban-server log path
+iface - Networking interface to use to calculate bandwidth
+location - Used to return current weather conditions via wttr.in
 maxCpuTemp - Maximum CPU temp (used to change color based on temps)
 maxGpuTemp - Maximum GPU temp
 transmissionAddr - IP address of transmission torrent server
 transmissionPort - Port number of transmission torrent server
 transmissionDir - Subdirectory location of transmission torrent server, e.g. 192.168.1.2/subdirectory
-f2blog - Fail2ban-server log path 
-cf - SSL certificate expiration date cache file
 ```
 
 ### Screenshot:
