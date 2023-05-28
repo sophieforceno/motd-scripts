@@ -11,7 +11,8 @@ getweather(){
 }
 
 weather=$(getweather)
+gdate=$(getdate)
 
-echo -n "  Current weather conditions | "; getdate
+echo -n "  Current weather conditions | "; echo -e "\e[0;37m $gdate\e[0m"
 echo "    Location    Temp. Humid. Wind Precip. UV Condition"
-echo -e "   \e[0;37m $weather \e[0m\n"%
+echo -e "   \e[0;37m $weather \e[0m\n"
