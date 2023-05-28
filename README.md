@@ -32,7 +32,7 @@ cf - SSL certificate expiration date cache file
 ### Screenshot:
 ![alt text][logo]
 
-[logo]: https://github.com/sophieforceno/motd-scripts/blob/ac23f88f3d366106a4e6c4631869a80ce8f3ecba/Screenshot.png "MOTD Scripts"
+[logo]: https://github.com/sophieforceno/motd-scripts/blob/master/Screenshot.png "MOTD Scripts"
 
 
 ### The UnLicense
