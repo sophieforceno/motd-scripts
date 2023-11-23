@@ -4,7 +4,9 @@ My dynamic MOTD Bash scripts
 Inspired by (https://github.com/RIKRUS/MOTD)
 
 Dependencies vary by script, but include: `figlet`, `curl`, `lm-sensors` (`sensors` command), `vmstat`, `transmission-remote`, `pihole`, `screen`, and `fail2ban-server`. 
-See the individual scripts for more info. A limitation: some colors display incorrectly in tmux and screen sessions.
+See the individual scripts for more info. 
+A limitation: some colors display incorrectly in tmux and screen sessions.
+Note: all scripts should also be compatible with zsh (except 90-sslcerts.sh)
 
 ## Installation:
 	git clone https://github.com/sophieforceno/motd-scripts.git
