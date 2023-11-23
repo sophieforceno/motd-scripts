@@ -12,10 +12,10 @@ if [ "${#SERVICES[@]}" -ne 0 ]; then
 
 	for p in ${SERVICES[@]}; do
 		proc=$(echo "$p" | sed 's/^./[&]/')
-		status=$(ps ax | grep -iwo "$proc" | uniq)
+		proc_status=$(ps ax | grep -iwo "$proc" | uniq)
 
 # Change dot color to indicate service status up/down
-		if [[ -n $status ]]; then
+		if [[ -n "$proc_status" ]]; then
 			dot="\e[38;5;36m●\e[0m"
 		else
 			dot="\e[38;5;198m●\e[0m"
