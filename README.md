@@ -34,7 +34,7 @@ transmissionDir - Subdirectory location of transmission torrent server, e.g. 192
 ### Screenshot:
 ![alt text][logo]
 
-[logo]: https://github.com/sophieforceno/motd-scripts/blob/d9ae20adb303270fce2b8ce91ee26f4848f9206c/Screenshot.png "MOTD Scripts"
+[logo]: https://github.com/sophieforceno/motd-scripts/blob/9879a13eab555903faa112696407dcd5081dd51b/Screenshot.png "MOTD Scripts"
 
 
 ### The UnLicense
