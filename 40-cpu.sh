@@ -10,7 +10,6 @@ barclear=""
 
 percentUsed=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print ($2+$4-u1) * 100 / (t-t1) " "; }' <(grep -w "cpu" /proc/stat) <(sleep 0.5;grep -w "cpu" /proc/stat))
 percentUsed=$(echo ${percentUsed%.*})
-percentUsed="40"
 usedBarWidth=$((($percentUsed*$barWidth)/100))
 barContent=""
 color="38;5;36m"
