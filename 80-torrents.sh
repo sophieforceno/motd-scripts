@@ -5,7 +5,7 @@
 
 source $HOME/.config/motd.conf
 
-if [[ -n $(which transmission-remote) ]]; then
+if [[ -n $(which transmission-remote) 2> /dev/null ]]; then
 
 	IFS=$'\r\n'
 	address="http://$transmissionAddr:$transmissionPort/$transmissionDir"
